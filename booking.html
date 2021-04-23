@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit=booking()>
+        <h3>CAB TYPES</h3>
+        <label>select cab type:</label>
+        <select name="cabtype" id="cabtype" placeholder="enter cabtype" required>
+        <br>
+        <br>
+        <option disabled>--select a cabtype---</option>
+        <option value="mini" >MINI</option>
+        <option value="micro" >MICRO</option>
+        <option value="prime" >PRIME</option>
+        </select>
+        <br/>
+        <br>
+        <label>enter the kms:</label>
+        <input type="number" id="km" placeholder="enter kms" required>
+        <br/>
+        <br/>
+        <button>submit</button>
+        <button type="reset">reset</button>
+        <button type="button" onclick="hello()"> click me</button>
+        <br/>
+        <br/>
+        <label>total estimation:Rs.500/</label>  
+        <h3>BOOKING</h3>
+
+        <label>journey date</label>
+        <input type=date name="journeydate" id="journeydate">
+        <br>
+        <br>
+        <label>journey time</label>
+        <input type=time name="journeytime" id="journeytime">
+        <br>
+        <br>
+        GST:<input type=number name="gst" value="G">
+        <br>
+        <br>
+        <label>SENIOR CITIZEN</label>
+        <input type=number name="seniorcitizen" id="seniorcitizen" value="S">
+        <br>
+        <br>
+        <label>GENDER</label>
+        <input type=radio name="gender" value="M">male<br/>
+        <input type=radio name="gender" value="F">female<br/>
+        <br>
+        <br>
+        <button type=submit>submit</button>
+        <button type=reset>reset</button>
+        <button type=button onclick="hello()">onclick</button>
+</form>
+<script>
+    function booking()
+    {
+        event.preventDefault();
+        alert("button is clicked");
+        let kms=document.querySelector("#km").value;
+        let cabtype=document.querySelector("#cabtype").value;
+        let amount=0;
+        alert("kms: " + kms);
+        switch(cabtype)
+        {
+        case"mini":amount=kms*10;break;
+        case"micro":amount=kms*20;break;
+        case"prime":amount=kms*30;break;
+        }
+    
+        alert("YOUR BILL AMOUNT IS "+ amount);
+        let journeytime=document.querySelector("#journeytime").value;
+        let tInt=journeytime.substr(0,2);
+        let seniorCitizen=document.querySelector("#seniorcitizen").value;
+        if(tInt>=17 && tInt<=18)
+        {   
+            let peak= amount+(amount*0.025);
+            alert("Its is a peak hours ");
+            if(seniorCitizen.checked==true)
+            {
+                let finalAmount=peak*0.5;
+                alert("total fare amount with peek  and senior :" + finalAmount+"Rs/-");
+                alert("your age is greater than 60 and you have an 50% discount");
+            }
+        
+             else
+             {
+                 alert("total fare with peakhours :" +peak+ "Rs/-");
+            }    
+        }
+        else{
+            alert("its not a peak hour");
+            if(seniorCitizen.checked==true){
+                let peak=amount+(amount*0.0125);
+                let finalAmount=peak*0.5;
+                alert("total fare amount with peek  and senior :" +amount+"Rs/-");
+                alert("your age is greater than 60 and you have an 50% discount");
+
+            }
+            else{
+                alert("Total fare:" + amount + "Rs/-");
+            }
+        }
+        alert("THANK YOU!!!");
+    }
+    function hello()
+    {
+        alert("hello");
+    }
+</script>
+</body>
+</html>

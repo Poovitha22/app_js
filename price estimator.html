@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h3>BILLING</h3>
+        <form onsubmit="priceestimator()">
+        <label>select cab type:</label>
+        <select name="cabtype" id="cabtype" placeholder="enter the cabtype" required>
+        <br>
+        <br>
+        <option disabled>--select a cabtype---</option>
+        <option value="mini" >MINI</option>
+        <option value="micro" >MICRO</option>
+        <option value="prime" >PRIME</option>
+        </select>
+        <br/>
+        <br>
+        <label>enter the kms:</label>
+        <input type="number" id="km" placeholder="enter kms" required>
+        <br/>
+        <br/>
+        <button>submit</button>
+        <br>
+        <br>
+        <button type="reset">reset</button>
+        <br>
+        <br>
+        <button type="button" onclick="hello()"> click me</button>
+
+        <br/>
+        <br/>
+        <label>TOTAL ESTIMATION AMOUNT:Rs.500/-</label>
+        <br>
+        </form>    
+
+<script>
+    function priceestimator()
+    {
+        event.preventDefault();
+        alert("buttom is clicked");
+        let kms=document.querySelector("#km").value;
+        alert("kms: " + kms);
+        let cabtype=document.querySelector("#cabtype").value;
+        let amount=0;
+        
+        switch(cabtype)
+        {
+        case"mini":amount=kms*10;break;
+        case"micro":amount=kms*20;break;
+        case"prime":amount=kms*30;break;
+        }
+        alert("YOUR BILL AMOUNT IS "+amount);
+    }
+    function hello()
+    {
+        alert("hello");
+    }
+
+</script>
+</body>
+
+</html>

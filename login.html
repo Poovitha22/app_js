@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit=login();>
+    <h3>LOGIN PAGE</h3>
+    
+        <label for="username">username</label>
+        <input type="text" name="username" id="username" placeholder="enter username" required autofocus>
+        <br>
+        <br>
+        <label for ="mobile number">mobile number</label>
+        <input type="text" name="mobile number" id="username" placeholder="enter mobile number" required autofocus>
+        <br/>
+        <br/>
+        <label for="password">password</label>
+        <input type="text" name="password" id="password" placeholder="enter the password" required autofocus>
+        <br>
+        <br>
+        <button type="submit">submit</button>
+        <br>
+        <br>
+        <button type="reset">reset</button>
+        <br>
+        <br>
+        <button type="button" onclick="hello()"> click me</button>
+        <br>
+        <br>
+
+    </form>
+    <script>
+        function login(){
+            event.preventDefault();
+            alert("login button clicked");
+            let username=document.querySelector("#username").value;
+            alert("username:" + username);
+            if(username =="admin" && username.length>3)
+            {
+                alert("Login Success");
+            }
+            else{
+                alert("Invalid Login Credentials");
+            }
+        }
+        function hello(){
+            alert("Hello");
+        }
+    </script>
+</body>
+</html>
